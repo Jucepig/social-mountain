@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CompanyIcon from 'react-icons/lib/md/filter-hdr';
 import ProfileIcon from 'react-icons/lib/md/person-outline';
 
@@ -8,8 +8,8 @@ import Search from './Search/Search';
 
 //////////////////////////////////////////////////////// THIS COMPONENT IS BEING RENDERED IN THE *APP* COMPONENT
 
-export default class Header extends Component {
-  render() {
+function Header(props)  {
+    const {filterPostsFn} = props
     return (
       <section className="Header__parent">
         <section className="Header__content">
@@ -22,7 +22,7 @@ export default class Header extends Component {
 
           {/* Displays the search bar */}
           <div className="Header__right">
-            <Search />
+            <Search filterPostsFn={filterPostsFn} />
 
             {/* Displays the profile icon */}
             <div className="Header__profile">
@@ -32,6 +32,7 @@ export default class Header extends Component {
 
         </section>
       </section>
-    )
-  }
+  )
 }
+
+export default Header
